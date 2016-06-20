@@ -16,5 +16,17 @@ namespace EbookImporter.UI
         {
             InitializeComponent();
         }
+
+        private void btnAbrir_Click(object sender, EventArgs e)
+        {
+            ofd.ShowDialog();
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                Uri url = new Uri(ofd.FileName);
+
+                webBrowser.Url = url;
+            }
+        }
     }
 }
