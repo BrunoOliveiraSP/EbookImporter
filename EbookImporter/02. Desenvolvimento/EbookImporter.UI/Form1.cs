@@ -12,6 +12,8 @@ namespace EbookImporter.UI
 {
     public partial class Form1 : Form
     {
+        string file;
+
         public Form1()
         {
             InitializeComponent();
@@ -20,13 +22,10 @@ namespace EbookImporter.UI
         private void btnAbrir_Click(object sender, EventArgs e)
         {
             ofd.ShowDialog();
+            file = ofd.FileName;
 
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                Uri url = new Uri(ofd.FileName);
-
-                webBrowser.Url = url;
-            }
+            Uri url = new Uri(file);
+            webBrowser.Url = url;
         }
     }
 }
