@@ -64,14 +64,14 @@
             this.txtNLNome.Location = new System.Drawing.Point(68, 53);
             this.txtNLNome.Name = "txtNLNome";
             this.txtNLNome.Size = new System.Drawing.Size(214, 20);
-            this.txtNLNome.TabIndex = 2;
+            this.txtNLNome.TabIndex = 0;
             // 
             // txtNLAutor
             // 
             this.txtNLAutor.Location = new System.Drawing.Point(68, 79);
             this.txtNLAutor.Name = "txtNLAutor";
             this.txtNLAutor.Size = new System.Drawing.Size(214, 20);
-            this.txtNLAutor.TabIndex = 4;
+            this.txtNLAutor.TabIndex = 1;
             // 
             // lblNLAutor
             // 
@@ -96,14 +96,14 @@
             this.txtNLEditora.Location = new System.Drawing.Point(68, 105);
             this.txtNLEditora.Name = "txtNLEditora";
             this.txtNLEditora.Size = new System.Drawing.Size(214, 20);
-            this.txtNLEditora.TabIndex = 4;
+            this.txtNLEditora.TabIndex = 2;
             // 
             // txtNLAno
             // 
             this.txtNLAno.Location = new System.Drawing.Point(68, 131);
             this.txtNLAno.Name = "txtNLAno";
             this.txtNLAno.Size = new System.Drawing.Size(214, 20);
-            this.txtNLAno.TabIndex = 6;
+            this.txtNLAno.TabIndex = 3;
             // 
             // lblNLAno
             // 
@@ -119,7 +119,7 @@
             this.btnNLCriar.Location = new System.Drawing.Point(119, 172);
             this.btnNLCriar.Name = "btnNLCriar";
             this.btnNLCriar.Size = new System.Drawing.Size(75, 23);
-            this.btnNLCriar.TabIndex = 7;
+            this.btnNLCriar.TabIndex = 4;
             this.btnNLCriar.Text = "Criar";
             this.btnNLCriar.UseVisualStyleBackColor = true;
             this.btnNLCriar.Click += new System.EventHandler(this.btnNLCriar_Click);
@@ -140,7 +140,7 @@
             this.Controls.Add(this.lblNL);
             this.Controls.Add(this.lblNLNome);
             this.Name = "NovoLivro";
-            this.Text = "NovoLivro";
+            this.Text = "Novo Livro";
             this.ResumeLayout(false);
             this.PerformLayout();
 

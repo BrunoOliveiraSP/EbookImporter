@@ -30,7 +30,6 @@
         {
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.groupBoxCadastro = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblCapNum = new System.Windows.Forms.Label();
             this.lblCopiar = new System.Windows.Forms.Label();
             this.lblCapPag = new System.Windows.Forms.Label();
@@ -61,7 +60,6 @@
             // 
             // groupBoxCadastro
             // 
-            this.groupBoxCadastro.Controls.Add(this.label1);
             this.groupBoxCadastro.Controls.Add(this.lblCapNum);
             this.groupBoxCadastro.Controls.Add(this.lblCopiar);
             this.groupBoxCadastro.Controls.Add(this.lblCapPag);
@@ -72,21 +70,13 @@
             this.groupBoxCadastro.Controls.Add(this.btnAbrir);
             this.groupBoxCadastro.Controls.Add(this.lblCaminho);
             this.groupBoxCadastro.Controls.Add(this.lblTxtCaminho);
+            this.groupBoxCadastro.Enabled = false;
             this.groupBoxCadastro.Location = new System.Drawing.Point(13, 41);
             this.groupBoxCadastro.Name = "groupBoxCadastro";
             this.groupBoxCadastro.Size = new System.Drawing.Size(470, 483);
             this.groupBoxCadastro.TabIndex = 1;
             this.groupBoxCadastro.TabStop = false;
             this.groupBoxCadastro.Text = "Cadastro";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(214, 281);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "teste";
             // 
             // lblCapNum
             // 
@@ -163,7 +153,7 @@
             // lblCaminho
             // 
             this.lblCaminho.AutoSize = true;
-            this.lblCaminho.Location = new System.Drawing.Point(112, 31);
+            this.lblCaminho.Location = new System.Drawing.Point(106, 31);
             this.lblCaminho.Name = "lblCaminho";
             this.lblCaminho.Size = new System.Drawing.Size(16, 13);
             this.lblCaminho.TabIndex = 1;
@@ -214,7 +204,7 @@
             this.Controls.Add(this.webBrowser);
             this.Name = "Principal";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Text = "Form1";
+            this.Text = "Importador de Ebook";
             this.groupBoxCadastro.ResumeLayout(false);
             this.groupBoxCadastro.PerformLayout();
             this.ResumeLayout(false);
@@ -239,7 +229,6 @@
         private System.Windows.Forms.Label lblCopiar;
         private System.Windows.Forms.Label lblCapNum;
         private System.Windows.Forms.Label lblNovo;
-        private System.Windows.Forms.Label label1;
     }
 }
 

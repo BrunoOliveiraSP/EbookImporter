@@ -12,34 +12,38 @@ namespace EbookImporter.UI
 {
     public partial class Principal : Form
     {
-        string file;
-        public Livro livro = new Livro();
-
         public Principal()
         {
             InitializeComponent();
         }
 
+        Livro livro = new Livro();
+
         private void btnAbrir_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
-            file = openFileDialog1.FileName;
 
-            Uri url = new Uri(file);
+            Uri url = new Uri(openFileDialog1.FileName);
             webBrowser.Url = url;
 
-            lblCaminho.Text = file;
+            lblCaminho.Text = openFileDialog1.FileName;
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
             NovoLivro novoLivro = new NovoLivro();
-            novoLivro.Show();
+            novoLivro.ShowDialog();
+
+            if(novoLivro.DialogResult == DialogResult.OK)
+            {
+                livro = novoLivro.livroNovo;
+                lblNovo.Text = livro.Nome;
+                groupBoxCadastro.Enabled = true;
+            }
         }
 
         private void btnCapConfirmar_Click(object sender, EventArgs e)
         {
-            label1.Text = livro.Nome;
         }
     }
 }

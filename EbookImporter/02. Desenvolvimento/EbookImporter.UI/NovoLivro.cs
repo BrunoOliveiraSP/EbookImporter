@@ -12,19 +12,61 @@ namespace EbookImporter.UI
 {
     public partial class NovoLivro : Form
     {
-        Principal main = new Principal();
-
         public NovoLivro()
         {
             InitializeComponent();
         }
+        
+        public Livro livroNovo = new Livro();
+        bool ex = false;
 
         private void btnNLCriar_Click(object sender, EventArgs e)
         {
-            main.livro.Nome = txtNLNome.Text;
-            main.livro.Autor = txtNLAutor.Text;
-            main.livro.Editora = txtNLEditora.Text;
-            main.livro.Ano = int.Parse(txtNLAno.Text);
+            ex = false;
+
+            livroNovo.Nome = tentar("Nome", txtNLNome.Text);
+            
+            livroNovo.Autor = tentar("Autor", txtNLAutor.Text);
+            
+            livroNovo.Editora = tentar("Editora", txtNLEditora.Text);
+
+            try
+            {
+                livroNovo.Ano = int.Parse(txtNLAno.Text);
+            }
+            catch (Exception)
+            {
+                ex = true;
+
+                MessageBox.Show("Ano inválido");
+            }
+
+            if (ex == false)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        private string tentar(string tipo, string texto)
+        {
+            try
+            {
+                string s = texto;
+            }
+            catch(Exception)
+            {
+                ex = true;
+
+                if (tipo == "Editora")
+                {
+                    MessageBox.Show("Editora inválida");
+                }
+
+                MessageBox.Show(String.Format("{0} inválido", tipo));
+            }
+
+            return texto;
         }
     }
 }
