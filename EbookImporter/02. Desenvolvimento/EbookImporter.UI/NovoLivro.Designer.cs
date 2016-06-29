@@ -140,7 +140,7 @@
             this.Controls.Add(this.lblNL);
             this.Controls.Add(this.lblNLNome);
             this.Name = "NovoLivro";
-            this.Text = "Novo Livro";
+            this.Text = "Novo livro";
             this.ResumeLayout(false);
             this.PerformLayout();
 
