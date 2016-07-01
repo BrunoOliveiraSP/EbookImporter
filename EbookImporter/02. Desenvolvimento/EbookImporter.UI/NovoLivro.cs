@@ -24,21 +24,21 @@ namespace EbookImporter.UI
         {
             ex = false;
 
-            livroNovo.Nome = tentar("Nome", txtNLNome.Text);
+            livroNovo.Nome = tentar(" nome", txtNLNome.Text);
             
-            livroNovo.Autor = tentar("Autor", txtNLAutor.Text);
+            livroNovo.Autor = tentar(" autor", txtNLAutor.Text);
             
-            livroNovo.Editora = tentar("Editora", txtNLEditora.Text);
+            livroNovo.Editora = tentar("a editora", txtNLEditora.Text);
 
             try
             {
                 livroNovo.Ano = int.Parse(txtNLAno.Text);
             }
-            catch (Exception)
+            catch
             {
-                ex = true;
+                MessageBox.Show("Digite um ano válido");
 
-                MessageBox.Show("Ano inválido");
+                ex = true;
             }
 
             if (ex == false)
@@ -53,6 +53,13 @@ namespace EbookImporter.UI
             try
             {
                 string s = texto;
+
+                if(texto == "")
+                {
+                    MessageBox.Show(String.Format("Digite um{0}", tipo));
+
+                    ex = true;
+                }
             }
             catch(Exception)
             {
@@ -60,10 +67,10 @@ namespace EbookImporter.UI
 
                 if (tipo == "Editora")
                 {
-                    MessageBox.Show("Editora inválida");
+                    MessageBox.Show("Digite uma Editora válida");
                 }
 
-                MessageBox.Show(String.Format("{0} inválido", tipo));
+                MessageBox.Show(String.Format("Digite um{0} válido", tipo));
             }
 
             return texto;

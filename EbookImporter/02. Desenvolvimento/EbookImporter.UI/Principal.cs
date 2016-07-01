@@ -18,6 +18,7 @@ namespace EbookImporter.UI
         }
 
         Livro livro = new Livro();
+        int capCounter = 1;
 
         private void btnAbrir_Click(object sender, EventArgs e)
         {
@@ -37,13 +38,30 @@ namespace EbookImporter.UI
             if(novoLivro.DialogResult == DialogResult.OK)
             {
                 livro = novoLivro.livroNovo;
-                lblNovo.Text = livro.Nome;
+                lblNovo.Text = String.Format("{0}. ({1}). \"{2}\". {3}", livro.Autor.ToUpper(), livro.Ano, livro.Nome, livro.Editora);
+
                 groupBoxCadastro.Enabled = true;
+
+                livro.Capitulos = new List<Capitulo>();
             }
         }
 
         private void btnCapConfirmar_Click(object sender, EventArgs e)
         {
+            Capitulo cap = new Capitulo();
+            cap.Numero = capCounter;
+            cap.Nome = txtCapNome.Text;
+            cap.Pag = int.Parse(txtCapPag.Text);
+            //cap.Texto = 
+
+            capCounter++;
+            lblCapNum.Text = capCounter.ToString();
+
+            livro.Capitulos.Add(cap);
+
+            //
+
+            dgv1.DataSource = livro.Capitulos.ToList();
         }
     }
 }

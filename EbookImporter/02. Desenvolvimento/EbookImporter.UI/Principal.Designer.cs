@@ -30,7 +30,7 @@
         {
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.groupBoxCadastro = new System.Windows.Forms.GroupBox();
-            this.lblCapNum = new System.Windows.Forms.Label();
+            this.lblCap = new System.Windows.Forms.Label();
             this.lblCopiar = new System.Windows.Forms.Label();
             this.lblCapPag = new System.Windows.Forms.Label();
             this.txtCapPag = new System.Windows.Forms.TextBox();
@@ -43,7 +43,10 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.lblNovo = new System.Windows.Forms.Label();
+            this.lblCapNum = new System.Windows.Forms.Label();
+            this.dgv1 = new System.Windows.Forms.DataGridView();
             this.groupBoxCadastro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.SuspendLayout();
             // 
             // webBrowser
@@ -60,7 +63,9 @@
             // 
             // groupBoxCadastro
             // 
+            this.groupBoxCadastro.Controls.Add(this.dgv1);
             this.groupBoxCadastro.Controls.Add(this.lblCapNum);
+            this.groupBoxCadastro.Controls.Add(this.lblCap);
             this.groupBoxCadastro.Controls.Add(this.lblCopiar);
             this.groupBoxCadastro.Controls.Add(this.lblCapPag);
             this.groupBoxCadastro.Controls.Add(this.txtCapPag);
@@ -78,15 +83,15 @@
             this.groupBoxCadastro.TabStop = false;
             this.groupBoxCadastro.Text = "Cadastro";
             // 
-            // lblCapNum
+            // lblCap
             // 
-            this.lblCapNum.AutoSize = true;
-            this.lblCapNum.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCapNum.Location = new System.Drawing.Point(16, 129);
-            this.lblCapNum.Name = "lblCapNum";
-            this.lblCapNum.Size = new System.Drawing.Size(88, 17);
-            this.lblCapNum.TabIndex = 10;
-            this.lblCapNum.Text = "Capítulo 1";
+            this.lblCap.AutoSize = true;
+            this.lblCap.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCap.Location = new System.Drawing.Point(16, 129);
+            this.lblCap.Name = "lblCap";
+            this.lblCap.Size = new System.Drawing.Size(66, 19);
+            this.lblCap.TabIndex = 10;
+            this.lblCap.Text = "Capítulo";
             // 
             // lblCopiar
             // 
@@ -187,11 +192,31 @@
             // lblNovo
             // 
             this.lblNovo.AutoSize = true;
-            this.lblNovo.Location = new System.Drawing.Point(95, 17);
+            this.lblNovo.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNovo.Location = new System.Drawing.Point(92, 13);
             this.lblNovo.Name = "lblNovo";
-            this.lblNovo.Size = new System.Drawing.Size(72, 13);
+            this.lblNovo.Size = new System.Drawing.Size(14, 18);
             this.lblNovo.TabIndex = 3;
-            this.lblNovo.Text = "Nome do livro";
+            this.lblNovo.Text = "-";
+            // 
+            // lblCapNum
+            // 
+            this.lblCapNum.AutoSize = true;
+            this.lblCapNum.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCapNum.Location = new System.Drawing.Point(78, 128);
+            this.lblCapNum.Name = "lblCapNum";
+            this.lblCapNum.Size = new System.Drawing.Size(19, 21);
+            this.lblCapNum.TabIndex = 11;
+            this.lblCapNum.Text = "1";
+            // 
+            // dgv1
+            // 
+            this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv1.Location = new System.Drawing.Point(20, 265);
+            this.dgv1.Name = "dgv1";
+            this.dgv1.ReadOnly = true;
+            this.dgv1.Size = new System.Drawing.Size(424, 198);
+            this.dgv1.TabIndex = 12;
             // 
             // Principal
             // 
@@ -207,6 +232,7 @@
             this.Text = "Importador de Ebook";
             this.groupBoxCadastro.ResumeLayout(false);
             this.groupBoxCadastro.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,8 +253,10 @@
         private System.Windows.Forms.TextBox txtCapNome;
         private System.Windows.Forms.Button btnCapConfirmar;
         private System.Windows.Forms.Label lblCopiar;
-        private System.Windows.Forms.Label lblCapNum;
+        private System.Windows.Forms.Label lblCap;
         private System.Windows.Forms.Label lblNovo;
+        private System.Windows.Forms.Label lblCapNum;
+        private System.Windows.Forms.DataGridView dgv1;
     }
 }
 
