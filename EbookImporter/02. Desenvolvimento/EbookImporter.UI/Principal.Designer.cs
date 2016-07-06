@@ -30,11 +30,14 @@
         {
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.groupBoxCadastro = new System.Windows.Forms.GroupBox();
+            this.btnFinalizar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblCapNum = new System.Windows.Forms.Label();
             this.lblCap = new System.Windows.Forms.Label();
             this.lblCopiar = new System.Windows.Forms.Label();
+            this.lblCapPaginaFinal = new System.Windows.Forms.Label();
             this.lblCapPaginaInicial = new System.Windows.Forms.Label();
+            this.txtCapPaginaFinal = new System.Windows.Forms.TextBox();
             this.txtCapPaginaInicial = new System.Windows.Forms.TextBox();
             this.lblCapNome = new System.Windows.Forms.Label();
             this.txtCapNome = new System.Windows.Forms.TextBox();
@@ -45,9 +48,6 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.lblNovo = new System.Windows.Forms.Label();
-            this.txtCapPaginaFinal = new System.Windows.Forms.TextBox();
-            this.lblCapPaginaFinal = new System.Windows.Forms.Label();
-            this.btnFinalizar = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.groupBoxCadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -92,6 +92,17 @@
             this.groupBoxCadastro.TabStop = false;
             this.groupBoxCadastro.Text = "Cadastro";
             // 
+            // btnFinalizar
+            // 
+            this.btnFinalizar.Enabled = false;
+            this.btnFinalizar.Location = new System.Drawing.Point(198, 446);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(75, 23);
+            this.btnFinalizar.TabIndex = 13;
+            this.btnFinalizar.Text = "Finalizar";
+            this.btnFinalizar.UseVisualStyleBackColor = true;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -131,6 +142,15 @@
             this.lblCopiar.TabIndex = 9;
             this.lblCopiar.Text = "Copie as informações do PDF, cole nos campos e confirme";
             // 
+            // lblCapPaginaFinal
+            // 
+            this.lblCapPaginaFinal.AutoSize = true;
+            this.lblCapPaginaFinal.Location = new System.Drawing.Point(225, 183);
+            this.lblCapPaginaFinal.Name = "lblCapPaginaFinal";
+            this.lblCapPaginaFinal.Size = new System.Drawing.Size(120, 13);
+            this.lblCapPaginaFinal.TabIndex = 8;
+            this.lblCapPaginaFinal.Text = "Última pág. do capítulo:";
+            // 
             // lblCapPaginaInicial
             // 
             this.lblCapPaginaInicial.AutoSize = true;
@@ -139,6 +159,14 @@
             this.lblCapPaginaInicial.Size = new System.Drawing.Size(101, 13);
             this.lblCapPaginaInicial.TabIndex = 8;
             this.lblCapPaginaInicial.Text = "1ª pág. do capítulo:";
+            // 
+            // txtCapPaginaFinal
+            // 
+            this.txtCapPaginaFinal.Enabled = false;
+            this.txtCapPaginaFinal.Location = new System.Drawing.Point(346, 180);
+            this.txtCapPaginaFinal.Name = "txtCapPaginaFinal";
+            this.txtCapPaginaFinal.Size = new System.Drawing.Size(98, 20);
+            this.txtCapPaginaFinal.TabIndex = 7;
             // 
             // txtCapPaginaInicial
             // 
@@ -230,39 +258,10 @@
             this.lblNovo.TabIndex = 3;
             this.lblNovo.Text = "-";
             // 
-            // txtCapPaginaFinal
-            // 
-            this.txtCapPaginaFinal.Enabled = false;
-            this.txtCapPaginaFinal.Location = new System.Drawing.Point(346, 180);
-            this.txtCapPaginaFinal.Name = "txtCapPaginaFinal";
-            this.txtCapPaginaFinal.Size = new System.Drawing.Size(98, 20);
-            this.txtCapPaginaFinal.TabIndex = 7;
-            // 
-            // lblCapPaginaFinal
-            // 
-            this.lblCapPaginaFinal.AutoSize = true;
-            this.lblCapPaginaFinal.Location = new System.Drawing.Point(225, 183);
-            this.lblCapPaginaFinal.Name = "lblCapPaginaFinal";
-            this.lblCapPaginaFinal.Size = new System.Drawing.Size(120, 13);
-            this.lblCapPaginaFinal.TabIndex = 8;
-            this.lblCapPaginaFinal.Text = "Última pág. do capítulo:";
-            // 
-            // btnFinalizar
-            // 
-            this.btnFinalizar.Enabled = false;
-            this.btnFinalizar.Location = new System.Drawing.Point(198, 446);
-            this.btnFinalizar.Name = "btnFinalizar";
-            this.btnFinalizar.Size = new System.Drawing.Size(75, 23);
-            this.btnFinalizar.TabIndex = 13;
-            this.btnFinalizar.Text = "Finalizar";
-            this.btnFinalizar.UseVisualStyleBackColor = true;
-            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
-            // 
             // saveFileDialog1
             // 
             this.saveFileDialog1.DefaultExt = "json";
             this.saveFileDialog1.Filter = "JSON|*.json|Documento de texto|*.txt|Todos os documentos|*.*";
-            this.saveFileDialog1.InitialDirectory = "Desktop";
             this.saveFileDialog1.Title = "Salvar";
             // 
             // Principal
