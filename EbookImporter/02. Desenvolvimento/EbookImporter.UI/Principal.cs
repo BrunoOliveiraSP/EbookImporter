@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.parser;
+using Newtonsoft.Json;
 
 namespace EbookImporter.UI
 {
@@ -17,21 +20,15 @@ namespace EbookImporter.UI
             InitializeComponent();
         }
 
-        Livro livro = new Livro();
-        int capCounter = 1;
-
-        private void btnAbrir_Click(object sender, EventArgs e)
-        {
-            openFileDialog1.ShowDialog();
-
-            Uri url = new Uri(openFileDialog1.FileName);
-            webBrowser.Url = url;
-
-            lblCaminho.Text = openFileDialog1.FileName;
-        }
+        Livro livro;
+        int capCounter;
+        string caminhoPdf;
+        PdfReader pdfreader;
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
+            LimparCampos();
+
             NovoLivro novoLivro = new NovoLivro();
             novoLivro.ShowDialog();
 
@@ -46,22 +43,83 @@ namespace EbookImporter.UI
             }
         }
 
+        private void btnAbrir_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
+
+            caminhoPdf = openFileDialog1.FileName;
+
+            Uri url = new Uri(caminhoPdf);
+            webBrowser.Url = url;
+
+            lblCaminho.Text = caminhoPdf;
+
+            txtCapNome.Enabled = true;
+            txtCapPaginaInicial.Enabled = true;
+            txtCapPaginaFinal.Enabled = true;
+            btnCapConfirmar.Enabled = true;
+
+            pdfreader = new PdfReader(caminhoPdf);
+        }
+
         private void btnCapConfirmar_Click(object sender, EventArgs e)
         {
             Capitulo cap = new Capitulo();
             cap.Numero = capCounter;
             cap.Nome = txtCapNome.Text;
-            cap.Pag = int.Parse(txtCapPag.Text);
-            //cap.Texto = 
+            cap.PaginaInicial = int.Parse(txtCapPaginaInicial.Text);
+            cap.PaginaFinal = int.Parse(txtCapPaginaFinal.Text);
+            cap.Texto = ExtractText(pdfreader, cap.PaginaInicial, cap.PaginaFinal);
 
             capCounter++;
             lblCapNum.Text = capCounter.ToString();
 
             livro.Capitulos.Add(cap);
 
-            //
+            btnFinalizar.Enabled = true;
 
-            dgv1.DataSource = livro.Capitulos.ToList();
+            dataGridView1.DataSource = livro.Capitulos.ToList();
+        }
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.FileName = livro.Nome;
+            saveFileDialog1.ShowDialog();
+
+            string savePath = saveFileDialog1.FileName;
+
+            System.IO.File.WriteAllText(savePath, JsonConvert.SerializeObject(livro));
+        }
+
+        private static String ExtractText(PdfReader reader, int PagInicial, int PagFinal)
+        {
+            StringBuilder text = new StringBuilder();
+            
+            for (int i = PagInicial; i <= PagFinal; i++)
+            {
+                text.Append(PdfTextExtractor.GetTextFromPage(reader, i));
+            }
+
+            return text.ToString();
+        }
+
+        private void LimparCampos()
+        {
+            livro = new Livro();
+            capCounter = 1;
+            caminhoPdf = null;
+            webBrowser.Url = null;
+            livro.Capitulos = null;
+            txtCapNome.Enabled = false;
+            txtCapPaginaInicial.Enabled = false;
+            txtCapPaginaFinal.Enabled = false;
+            btnCapConfirmar.Enabled = false;
+            groupBoxCadastro.Enabled = false;
+            btnFinalizar.Enabled = false;
+            lblCaminho.Text = "...";
+            lblNovo.Text = "-";
+
+            dataGridView1.DataSource = null;
         }
     }
 }

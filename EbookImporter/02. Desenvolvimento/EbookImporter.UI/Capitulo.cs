@@ -10,7 +10,8 @@ namespace EbookImporter.UI
     {
         public int Numero { get; set; }
         public string Nome { get; set; }
-        public int Pag { get; set; }
+        public int PaginaInicial { get; set; }
+        public int PaginaFinal { get; set; }
         public string Texto { get; set; }
     }
 }

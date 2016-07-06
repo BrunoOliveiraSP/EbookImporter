@@ -30,10 +30,12 @@
         {
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.groupBoxCadastro = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lblCapNum = new System.Windows.Forms.Label();
             this.lblCap = new System.Windows.Forms.Label();
             this.lblCopiar = new System.Windows.Forms.Label();
-            this.lblCapPag = new System.Windows.Forms.Label();
-            this.txtCapPag = new System.Windows.Forms.TextBox();
+            this.lblCapPaginaInicial = new System.Windows.Forms.Label();
+            this.txtCapPaginaInicial = new System.Windows.Forms.TextBox();
             this.lblCapNome = new System.Windows.Forms.Label();
             this.txtCapNome = new System.Windows.Forms.TextBox();
             this.btnCapConfirmar = new System.Windows.Forms.Button();
@@ -43,10 +45,12 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.lblNovo = new System.Windows.Forms.Label();
-            this.lblCapNum = new System.Windows.Forms.Label();
-            this.dgv1 = new System.Windows.Forms.DataGridView();
+            this.txtCapPaginaFinal = new System.Windows.Forms.TextBox();
+            this.lblCapPaginaFinal = new System.Windows.Forms.Label();
+            this.btnFinalizar = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.groupBoxCadastro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // webBrowser
@@ -63,12 +67,17 @@
             // 
             // groupBoxCadastro
             // 
-            this.groupBoxCadastro.Controls.Add(this.dgv1);
+            this.groupBoxCadastro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBoxCadastro.Controls.Add(this.btnFinalizar);
+            this.groupBoxCadastro.Controls.Add(this.dataGridView1);
             this.groupBoxCadastro.Controls.Add(this.lblCapNum);
             this.groupBoxCadastro.Controls.Add(this.lblCap);
             this.groupBoxCadastro.Controls.Add(this.lblCopiar);
-            this.groupBoxCadastro.Controls.Add(this.lblCapPag);
-            this.groupBoxCadastro.Controls.Add(this.txtCapPag);
+            this.groupBoxCadastro.Controls.Add(this.lblCapPaginaFinal);
+            this.groupBoxCadastro.Controls.Add(this.lblCapPaginaInicial);
+            this.groupBoxCadastro.Controls.Add(this.txtCapPaginaFinal);
+            this.groupBoxCadastro.Controls.Add(this.txtCapPaginaInicial);
             this.groupBoxCadastro.Controls.Add(this.lblCapNome);
             this.groupBoxCadastro.Controls.Add(this.txtCapNome);
             this.groupBoxCadastro.Controls.Add(this.btnCapConfirmar);
@@ -82,6 +91,25 @@
             this.groupBoxCadastro.TabIndex = 1;
             this.groupBoxCadastro.TabStop = false;
             this.groupBoxCadastro.Text = "Cadastro";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(20, 265);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(424, 168);
+            this.dataGridView1.TabIndex = 12;
+            // 
+            // lblCapNum
+            // 
+            this.lblCapNum.AutoSize = true;
+            this.lblCapNum.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCapNum.Location = new System.Drawing.Point(78, 128);
+            this.lblCapNum.Name = "lblCapNum";
+            this.lblCapNum.Size = new System.Drawing.Size(19, 21);
+            this.lblCapNum.TabIndex = 11;
+            this.lblCapNum.Text = "1";
             // 
             // lblCap
             // 
@@ -103,21 +131,22 @@
             this.lblCopiar.TabIndex = 9;
             this.lblCopiar.Text = "Copie as informações do PDF, cole nos campos e confirme";
             // 
-            // lblCapPag
+            // lblCapPaginaInicial
             // 
-            this.lblCapPag.AutoSize = true;
-            this.lblCapPag.Location = new System.Drawing.Point(16, 183);
-            this.lblCapPag.Name = "lblCapPag";
-            this.lblCapPag.Size = new System.Drawing.Size(101, 13);
-            this.lblCapPag.TabIndex = 8;
-            this.lblCapPag.Text = "1ª pág. do capítulo:";
+            this.lblCapPaginaInicial.AutoSize = true;
+            this.lblCapPaginaInicial.Location = new System.Drawing.Point(16, 183);
+            this.lblCapPaginaInicial.Name = "lblCapPaginaInicial";
+            this.lblCapPaginaInicial.Size = new System.Drawing.Size(101, 13);
+            this.lblCapPaginaInicial.TabIndex = 8;
+            this.lblCapPaginaInicial.Text = "1ª pág. do capítulo:";
             // 
-            // txtCapPag
+            // txtCapPaginaInicial
             // 
-            this.txtCapPag.Location = new System.Drawing.Point(118, 180);
-            this.txtCapPag.Name = "txtCapPag";
-            this.txtCapPag.Size = new System.Drawing.Size(326, 20);
-            this.txtCapPag.TabIndex = 7;
+            this.txtCapPaginaInicial.Enabled = false;
+            this.txtCapPaginaInicial.Location = new System.Drawing.Point(118, 180);
+            this.txtCapPaginaInicial.Name = "txtCapPaginaInicial";
+            this.txtCapPaginaInicial.Size = new System.Drawing.Size(98, 20);
+            this.txtCapPaginaInicial.TabIndex = 7;
             // 
             // lblCapNome
             // 
@@ -130,6 +159,7 @@
             // 
             // txtCapNome
             // 
+            this.txtCapNome.Enabled = false;
             this.txtCapNome.Location = new System.Drawing.Point(118, 154);
             this.txtCapNome.Name = "txtCapNome";
             this.txtCapNome.Size = new System.Drawing.Size(326, 20);
@@ -137,7 +167,8 @@
             // 
             // btnCapConfirmar
             // 
-            this.btnCapConfirmar.Location = new System.Drawing.Point(369, 206);
+            this.btnCapConfirmar.Enabled = false;
+            this.btnCapConfirmar.Location = new System.Drawing.Point(369, 216);
             this.btnCapConfirmar.Name = "btnCapConfirmar";
             this.btnCapConfirmar.Size = new System.Drawing.Size(75, 23);
             this.btnCapConfirmar.TabIndex = 3;
@@ -199,24 +230,40 @@
             this.lblNovo.TabIndex = 3;
             this.lblNovo.Text = "-";
             // 
-            // lblCapNum
+            // txtCapPaginaFinal
             // 
-            this.lblCapNum.AutoSize = true;
-            this.lblCapNum.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCapNum.Location = new System.Drawing.Point(78, 128);
-            this.lblCapNum.Name = "lblCapNum";
-            this.lblCapNum.Size = new System.Drawing.Size(19, 21);
-            this.lblCapNum.TabIndex = 11;
-            this.lblCapNum.Text = "1";
+            this.txtCapPaginaFinal.Enabled = false;
+            this.txtCapPaginaFinal.Location = new System.Drawing.Point(346, 180);
+            this.txtCapPaginaFinal.Name = "txtCapPaginaFinal";
+            this.txtCapPaginaFinal.Size = new System.Drawing.Size(98, 20);
+            this.txtCapPaginaFinal.TabIndex = 7;
             // 
-            // dgv1
+            // lblCapPaginaFinal
             // 
-            this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv1.Location = new System.Drawing.Point(20, 265);
-            this.dgv1.Name = "dgv1";
-            this.dgv1.ReadOnly = true;
-            this.dgv1.Size = new System.Drawing.Size(424, 198);
-            this.dgv1.TabIndex = 12;
+            this.lblCapPaginaFinal.AutoSize = true;
+            this.lblCapPaginaFinal.Location = new System.Drawing.Point(225, 183);
+            this.lblCapPaginaFinal.Name = "lblCapPaginaFinal";
+            this.lblCapPaginaFinal.Size = new System.Drawing.Size(120, 13);
+            this.lblCapPaginaFinal.TabIndex = 8;
+            this.lblCapPaginaFinal.Text = "Última pág. do capítulo:";
+            // 
+            // btnFinalizar
+            // 
+            this.btnFinalizar.Enabled = false;
+            this.btnFinalizar.Location = new System.Drawing.Point(198, 446);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(75, 23);
+            this.btnFinalizar.TabIndex = 13;
+            this.btnFinalizar.Text = "Finalizar";
+            this.btnFinalizar.UseVisualStyleBackColor = true;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "json";
+            this.saveFileDialog1.Filter = "JSON|*.json|Documento de texto|*.txt|Todos os documentos|*.*";
+            this.saveFileDialog1.InitialDirectory = "Desktop";
+            this.saveFileDialog1.Title = "Salvar";
             // 
             // Principal
             // 
@@ -230,9 +277,10 @@
             this.Name = "Principal";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "Importador de Ebook";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBoxCadastro.ResumeLayout(false);
             this.groupBoxCadastro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,8 +295,8 @@
         private System.Windows.Forms.Label lblCaminho;
         private System.Windows.Forms.Label lblTxtCaminho;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Label lblCapPag;
-        private System.Windows.Forms.TextBox txtCapPag;
+        private System.Windows.Forms.Label lblCapPaginaInicial;
+        private System.Windows.Forms.TextBox txtCapPaginaInicial;
         private System.Windows.Forms.Label lblCapNome;
         private System.Windows.Forms.TextBox txtCapNome;
         private System.Windows.Forms.Button btnCapConfirmar;
@@ -256,7 +304,11 @@
         private System.Windows.Forms.Label lblCap;
         private System.Windows.Forms.Label lblNovo;
         private System.Windows.Forms.Label lblCapNum;
-        private System.Windows.Forms.DataGridView dgv1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lblCapPaginaFinal;
+        private System.Windows.Forms.TextBox txtCapPaginaFinal;
+        private System.Windows.Forms.Button btnFinalizar;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
