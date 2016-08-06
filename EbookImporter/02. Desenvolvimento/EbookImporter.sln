@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Analise", "01 - Analise", "{4438890E-FCBE-42A9-8EF2-DA79384CAA90}"
 	ProjectSection(SolutionItems) = preProject
@@ -11,6 +11,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Desenvolvimento", "02 - Desenvolvimento", "{A683BDD9-7BD5-43A6-8757-D05E4DC310F3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EbookImporter.UI", "EbookImporter.UI\EbookImporter.UI.csproj", "{F9A92B9F-95B0-466B-8492-354DD5D5E0AC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - Books", "00 - Books", "{BDD059C9-CC54-44C4-89D4-8251DFCCCBB1}"
+	ProjectSection(SolutionItems) = preProject
+		..\00. eBooks\evangelho-guillon.pdf = ..\00. eBooks\evangelho-guillon.pdf
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
