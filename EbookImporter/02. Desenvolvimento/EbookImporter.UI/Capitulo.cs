@@ -21,6 +21,7 @@ namespace EbookImporter.UI
     public class Paragrafo
     {
         public int Orderm { get; set; }
+        public List<int> Pagina { get; set; }
         public string Texto { get; set; }
     }
 }

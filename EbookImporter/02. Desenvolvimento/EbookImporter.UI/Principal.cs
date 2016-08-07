@@ -74,7 +74,7 @@ namespace EbookImporter.UI
             cap.Texto = ExtractText(pdfreader, cap.PaginaInicial, cap.PaginaFinal);
 
             ExtractParagraphs(cap);
-
+            RemoveHeadersAndFooters(cap);
 
             capCounter++;
             lblCapNum.Text = capCounter.ToString();
@@ -92,7 +92,9 @@ namespace EbookImporter.UI
 
             for (int i = PagInicial; i <= PagFinal; i++)
             {
+                text.Append($"[[HEADER:PAGE:{i}]]");
                 text.Append(PdfTextExtractor.GetTextFromPage(reader, i));
+                text.Append($"[[FOOTER:PAGE:{i}]]");
             }
 
             return text.ToString();
@@ -105,12 +107,26 @@ namespace EbookImporter.UI
             var paragrafos = capitulo.Texto.Split(new string[] { QUEBRA_DE_PARAGRAFO }, 
                                                   StringSplitOptions.RemoveEmptyEntries);
 
+            int paginaAtual = capitulo.PaginaInicial;
             capitulo.Paragrafos = new List<Paragrafo>();
             for (int i = 0; i < paragrafos.Length; i++)
             {
+                var pagina = new List<int>();
+                if (paragrafos[i].StartsWith($"[[HEADER:PAGE:{paginaAtual + 1}"))
+                    paginaAtual++;
+
+                pagina.Add(paginaAtual);
+
+                while (paragrafos[i].Contains($"[[HEADER:PAGE:{paginaAtual + 1}"))
+                {
+                    paginaAtual++;
+                    pagina.Add(paginaAtual);
+                }
+
                 capitulo.Paragrafos.Add(
                     new Paragrafo
                     {
+                        Pagina = pagina,
                         Orderm = i,
                         Texto = paragrafos[i]
                     });
@@ -118,6 +134,14 @@ namespace EbookImporter.UI
 
         }
 
+
+        void RemoveHeadersAndFooters(Capitulo capitulo)
+        {
+            foreach (var paragrafo in capitulo.Paragrafos)
+            {
+
+            }
+        }
 
 
         private void btnFinalizar_Click(object sender, EventArgs e)
