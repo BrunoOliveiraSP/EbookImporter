@@ -62,6 +62,8 @@ namespace EbookImporter.UI
             pdfreader = new PdfReader(caminhoPdf);
         }
 
+
+
         private void btnCapConfirmar_Click(object sender, EventArgs e)
         {
             Capitulo cap = new Capitulo();
@@ -70,6 +72,9 @@ namespace EbookImporter.UI
             cap.PaginaInicial = int.Parse(txtCapPaginaInicial.Text);
             cap.PaginaFinal = int.Parse(txtCapPaginaFinal.Text);
             cap.Texto = ExtractText(pdfreader, cap.PaginaInicial, cap.PaginaFinal);
+
+            ExtractParagraphs(cap);
+
 
             capCounter++;
             lblCapNum.Text = capCounter.ToString();
@@ -81,6 +86,40 @@ namespace EbookImporter.UI
             dataGridView1.DataSource = livro.Capitulos.ToList();
         }
 
+        private static String ExtractText(PdfReader reader, int PagInicial, int PagFinal)
+        {
+            StringBuilder text = new StringBuilder();
+
+            for (int i = PagInicial; i <= PagFinal; i++)
+            {
+                text.Append(PdfTextExtractor.GetTextFromPage(reader, i));
+            }
+
+            return text.ToString();
+        }
+
+        void ExtractParagraphs(Capitulo capitulo)
+        {
+            string QUEBRA_DE_PARAGRAFO = ".\n";
+            
+            var paragrafos = capitulo.Texto.Split(new string[] { QUEBRA_DE_PARAGRAFO }, 
+                                                  StringSplitOptions.RemoveEmptyEntries);
+
+            capitulo.Paragrafos = new List<Paragrafo>();
+            for (int i = 0; i < paragrafos.Length; i++)
+            {
+                capitulo.Paragrafos.Add(
+                    new Paragrafo
+                    {
+                        Orderm = i,
+                        Texto = paragrafos[i]
+                    });
+            }
+
+        }
+
+
+
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
             saveFileDialog1.FileName = livro.Nome;
@@ -90,19 +129,7 @@ namespace EbookImporter.UI
 
             System.IO.File.WriteAllText(savePath, JsonConvert.SerializeObject(livro));
         }
-
-        private static String ExtractText(PdfReader reader, int PagInicial, int PagFinal)
-        {
-            StringBuilder text = new StringBuilder();
-            
-            for (int i = PagInicial; i <= PagFinal; i++)
-            {
-                text.Append(PdfTextExtractor.GetTextFromPage(reader, i));
-            }
-
-            return text.ToString();
-        }
-
+        
         private void LimparCampos()
         {
             livro = new Livro();

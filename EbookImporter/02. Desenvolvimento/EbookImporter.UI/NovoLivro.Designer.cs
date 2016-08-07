@@ -65,6 +65,7 @@
             this.txtNLNome.Name = "txtNLNome";
             this.txtNLNome.Size = new System.Drawing.Size(214, 20);
             this.txtNLNome.TabIndex = 0;
+            this.txtNLNome.Text = "Evangelho Segundo Espiritismo";
             // 
             // txtNLAutor
             // 
@@ -72,6 +73,7 @@
             this.txtNLAutor.Name = "txtNLAutor";
             this.txtNLAutor.Size = new System.Drawing.Size(214, 20);
             this.txtNLAutor.TabIndex = 1;
+            this.txtNLAutor.Text = "Allan Kardec";
             // 
             // lblNLAutor
             // 
@@ -97,6 +99,7 @@
             this.txtNLEditora.Name = "txtNLEditora";
             this.txtNLEditora.Size = new System.Drawing.Size(214, 20);
             this.txtNLEditora.TabIndex = 2;
+            this.txtNLEditora.Text = "FEB";
             // 
             // txtNLAno
             // 
@@ -104,6 +107,7 @@
             this.txtNLAno.Name = "txtNLAno";
             this.txtNLAno.Size = new System.Drawing.Size(214, 20);
             this.txtNLAno.TabIndex = 3;
+            this.txtNLAno.Text = "1857";
             // 
             // lblNLAno
             // 

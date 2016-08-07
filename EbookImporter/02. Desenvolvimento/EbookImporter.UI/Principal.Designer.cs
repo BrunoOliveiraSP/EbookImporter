@@ -167,6 +167,7 @@
             this.txtCapPaginaFinal.Name = "txtCapPaginaFinal";
             this.txtCapPaginaFinal.Size = new System.Drawing.Size(98, 20);
             this.txtCapPaginaFinal.TabIndex = 7;
+            this.txtCapPaginaFinal.Text = "40";
             // 
             // txtCapPaginaInicial
             // 
@@ -175,6 +176,7 @@
             this.txtCapPaginaInicial.Name = "txtCapPaginaInicial";
             this.txtCapPaginaInicial.Size = new System.Drawing.Size(98, 20);
             this.txtCapPaginaInicial.TabIndex = 7;
+            this.txtCapPaginaInicial.Text = "17";
             // 
             // lblCapNome
             // 
@@ -192,6 +194,7 @@
             this.txtCapNome.Name = "txtCapNome";
             this.txtCapNome.Size = new System.Drawing.Size(326, 20);
             this.txtCapNome.TabIndex = 4;
+            this.txtCapNome.Text = "Introdução";
             // 
             // btnCapConfirmar
             // 
